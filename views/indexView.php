@@ -16,7 +16,10 @@ include('includes/header.php');
 		<label>Sélectionner un type de compte</label>
 		<select class="" name="name" required>
 			<option value="" disabled>Choisissez le type de compte à ouvrir</option>
-			<?php  ?>
+			<?php foreach ($arrayAccounts as $account) { ?>
+				<option value="<?php echo $account ?>"><?php echo $account ?></option>
+			<?php 
+	} ?>
 		</select>
 		<input type="submit" name="new" value="Ouvrir un nouveau compte">
 	</form>
@@ -29,16 +32,16 @@ include('includes/header.php');
 		<div class="card-container">
 
 			<div class="card">
-				<h3><strong><?php  ?></strong></h3>
+				<h3><strong><?php echo $account->getName(); ?></strong></h3>
 				<div class="card-content">
 
 
-					<p>Somme disponible : <?php  ?> €</p>
+					<p>Somme disponible : <?php echo $account->getBalance(); ?> €</p>
 
 					<!-- Form for deposit / withdrawal -->
 					<h4>Dépot / Retrait</h4>
 					<form action="index.php" method="post">
-						<input type="hidden" name="id" value=" <?php  ?>"  required>
+						<input type="hidden" name="id" value=" <?php echo $account->getId(); ?>"  required>
 						<label>Entrer une somme à débiter/créditer</label>
 						<input type="" name="balance" placeholder="Ex: 250" >
 						<input type="submit" name="payment" value="Créditer">
@@ -52,18 +55,27 @@ include('includes/header.php');
 						<h4>Transfert</h4>
 						<label>Entrer une somme à transférer</label>
 						<input type="number" name="balance" placeholder="Ex: 300"  required>
-						<input type="hidden" name="idDebit" value="<?php  ?>" required>
+						<input type="hidden" name="idDebit" value="<?php echo $account->getId(); ?>" required>
 						<label for="">Sélectionner un compte pour le virement</label>
 						<select name="idPayment" required>
 							<option value="" disabled>Choisir un compte</option>
-							<?php  ?>
+							<?php foreach ($takeAccounts as $accounttransert) {
+							if ($accounttransert->getName() !== $account->getName()) {
+								?>
+										<option value="<?php echo $accounttransert->getId(); ?>"><?php echo $accounttransert->getName(); ?></option>
+								<?php
+
+						} ?>
+							<?php
+
+					} ?>
 						</select>
 						<input type="submit" name="transfer" value="Transférer l'argent">
 					</form>
 
 					<!-- Form for deletion -->
 			 		<form class="delete" action="index.php" method="post">
-				 		<input type="hidden" name="id" value="<?php  ?>"  required>
+				 		<input type="hidden" name="id" value="<?php echo $account->getId(); ?>"  required>
 				 		<input type="submit" name="delete" value="Supprimer le compte">
 			 		</form>
 
@@ -73,7 +85,7 @@ include('includes/header.php');
 
 	<?php 
 }
-// ######### FIN DU CODE A GENERER A CHAQUE TOUR DE BOUCLE ######### ?>
+?>
 
 	</div>
 
