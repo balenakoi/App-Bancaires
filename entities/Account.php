@@ -49,7 +49,7 @@ class Account
 
     /**
      * Set the value of id
-     *
+     *@param [int] $id
      * @return  self
      */
     public function setId($id)
@@ -70,7 +70,7 @@ class Account
 
     /**
      * Set the value of name
-     *
+     *@param [string] $name
      * @return  self
      */
     public function setName(string $name)
@@ -90,7 +90,7 @@ class Account
 
     /**
      * Set the value of balance
-     *
+     *@param [int] $balance
      * @return  self
      */
     public function setBalance($balance)
@@ -102,12 +102,22 @@ class Account
     }
 
 
+
+    /**
+     * paymentBalance function
+     * @param [int] $amount
+     */
     public function paymentBalance($amount)
     {
         $amount = (int)$amount;
         $this->balance += $amount;
     }
 
+
+    /**
+     * withdrawalBalance function
+     * @param [int] $amount
+     */
     public function withdrawalBalance($amount)
     {
         $amount = (int)$amount;
@@ -119,6 +129,14 @@ class Account
             $this->balance -= $amount;
         }
     }
+
+    /**
+     * sendBalance function
+     *
+     * @param [int] $account
+     * @param [int] $balance
+     * @return $account
+     */
     public function sendBalance(Account $account, $balance)
     {
         if (($this->balance) < $balance) {

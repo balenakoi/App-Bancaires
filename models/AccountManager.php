@@ -87,7 +87,7 @@ class AccountManager
 
     /**
      * getAccountId function
-     * @param integer $id
+     * @param [int] $id
      * @return $accountId
      */
     public function getAccountId(int $id)
@@ -107,7 +107,7 @@ class AccountManager
 
     /**
      * deleteAccount function
-     * @param Account $account
+     * @param [int] $id
      */
     public function deleteAccount($id)
     {
@@ -120,7 +120,7 @@ class AccountManager
 
     /**
      * updateAccount function
-     * @param Account $account
+     * @param  $account
      */
     public function updateAccount(Account $account)
     {
