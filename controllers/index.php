@@ -1,6 +1,6 @@
 <?php
 
-// On enregistre notre autoload.
+// We register our autoload.
 function chargerClasse($classname)
 {
     if (file_exists('../models/' . $classname . '.php')) {

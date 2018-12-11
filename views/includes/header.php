@@ -11,8 +11,9 @@
 		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 		<!-- Place favicon.ico in the root directory -->
 		<link rel="icon" type="assets/icon.ico" href="../favicon.ico">
-
+        <link rel="stylesheet" href="../assets/css/normalize.css">
         <link rel="stylesheet" href="../assets/css/main.css">
+        <link rel="stylesheet" href="../assets/Bootstrap/css/bootstrap.min.css">
     </head>
     <body>
         <!--[if lte IE 9]>

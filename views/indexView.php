@@ -6,9 +6,9 @@ include('includes/header.php');
 
 <div class="container">
 
-	<header class="flex">
+<header class="flex">
 		<p class="margin-right">Bienvenue sur l'application Comptes Bancaires</p>
-	</header>
+</header>
 
 	<h1>Mon application bancaire</h1>
 
